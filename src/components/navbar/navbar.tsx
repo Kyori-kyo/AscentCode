@@ -3,10 +3,13 @@ import { ThemeSwitcher } from "@/components/theme-switcher";
 import { navs } from "@/constants/navLinks";
 import { usePathname } from "next/navigation";
 import { Icons } from "../svgs/icons";
+import Link from "next/link";
 
 const Navbar = () => {
     const path = usePathname();
     const navItems = navs[path as keyof typeof navs];
+    console.log('teste');
+    console.log(navItems);
 
     return (
         <main className={"sticky top-0 bg-background"}>
@@ -16,11 +19,9 @@ const Navbar = () => {
                 </div>
                 <div className={"flex gap-5"}>
                     {
-                        navItems.map((item) => {
-                            return (
-                                <a key={item.itemName} href={item.navLink} className={"navItemLink"}>{item.itemName}</a>
-                            )
-                        })
+                        navItems?.map((item) => (
+                            <Link key={item?.itemName} href={item?.navLink} className={"navItemLink"}>{item?.itemName}</Link>
+                        ))
                     }
                 </div>
                 <div>

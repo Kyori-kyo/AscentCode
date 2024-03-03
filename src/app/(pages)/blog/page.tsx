@@ -6,3 +6,5 @@ const Blog = () => {
     )
 }
 export default Blog;
+
+// todo: menu pro cara escolher que grupo de tasks ele quer pegar
