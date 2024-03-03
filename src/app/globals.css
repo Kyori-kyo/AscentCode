@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* ================ base layers ================ */
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -61,7 +63,7 @@
     --destructive-foreground: 210 40% 98%;
 
     --border: 217.2 0% 20%;
-    --input: 217.2 0% 17.5%;
+    --input: 217.2 0% 90%;
     --ring: 212.7 26.8% 83.9%;
   }
 }
@@ -74,4 +76,29 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* ================ Glassmorphism ================ */
+.glassMorphism {
+  background: rgba(40, 40, 40, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.centerAlignPattern {
+  @apply flex flex-col justify-center text-center;
+}
+
+.navItemLink {
+  @apply hover:scale-110
+}
+
+::-moz-selection {
+  /* Code for Firefox */
+  @apply bg-orange-500;
+}
+
+::selection {
+  @apply bg-orange-500;
 }
