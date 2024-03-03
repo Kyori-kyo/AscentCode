@@ -6,56 +6,72 @@ import {
     TableHead,
     TableHeader,
     TableRow,
-} from "@/components/ui/table"
+} from "@/components/ui/table";
 
 import {
     Accordion,
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
-} from "@/components/ui/accordion"
-import { challenges } from "@/constants/challengesContent"
+} from "@/components/ui/accordion";
+import { LeetCodeChallenges } from "@/constants/challengesContent";
+import Link from "next/link";
+import { Icons } from "@/components/svgs/icons";
 
 const Challenges = () => {
+
+
     return (
-        <main className={"container"}>
-            {
-                challenges.map((challenge, index) => {
+        <main className={"container pb-16 pt-3"}>
+            <h1 className={"font-bold text-xl"}>Welcome!</h1>
+            <h1 className={"border-b pb-3"}>Select a data structure and choose your challenge!</h1>
+
+
+            {LeetCodeChallenges.data.studyPlanV2Detail.planSubGroups.map(
+                (challenge, index) => {
                     return (
-                        <Accordion key={challenge.title} type="single" collapsible>
+                        <Accordion key={challenge.name} type="single" collapsible>
                             <AccordionItem value={`item-${index}`}>
-                                <AccordionTrigger>{challenge.title}</AccordionTrigger>
+                                <AccordionTrigger>{challenge.name}</AccordionTrigger>
                                 <AccordionContent>
                                     <Table>
                                         <TableCaption>A list of challenges.</TableCaption>
                                         <TableHeader>
                                             <TableRow>
-                                                <TableHead>Status</TableHead>
-                                                <TableHead>Problem</TableHead>
+                                                <TableHead className={"w-1/4"}>Free</TableHead>
+                                                <TableHead className={"w-2/4"}>Problem</TableHead>
                                                 <TableHead>Difficulty</TableHead>
                                             </TableRow>
                                         </TableHeader>
                                         <TableBody>
-                                            {
-                                                challenge.content.map((problem, index) => {
-                                                    return (
-                                                        <TableRow key={challenge.content[index].problem}>
-                                                            <TableCell>{problem.status}</TableCell>
-                                                            <TableCell>{problem.problem}</TableCell>
-                                                            <TableCell>{problem.difficulty}</TableCell>
-                                                        </TableRow>
-                                                    )
-                                                })
-                                            }
+                                            {challenge.questions.map((problem, index) => {
+                                                return (
+                                                    <TableRow key={challenge.questions[index].title}>
+                                                        <TableCell>{problem.paidOnly === false ? '✔️' : '❌'}</TableCell>
+                                                        <TableCell>
+                                                            <Link
+                                                                target="_blank"
+                                                                href={`https://leetcode.com/problems/${problem.titleSlug}`}
+                                                                className={
+                                                                    "hover:underline flex items-center gap-2"
+                                                                }
+                                                            >
+                                                                {problem.title} <Icons.External_Link />
+                                                            </Link>
+                                                        </TableCell>
+                                                        <TableCell className={`${problem.difficulty === 'EASY' ? 'text-green-500' : problem.difficulty === 'MEDIUM' ? 'text-yellow-500' : 'text-red-500'}`}>{problem.difficulty.toLowerCase()}</TableCell>
+                                                    </TableRow>
+                                                );
+                                            })}
                                         </TableBody>
                                     </Table>
                                 </AccordionContent>
                             </AccordionItem>
                         </Accordion>
-                    )
-                })
-            }
+                    );
+                },
+            )}
         </main>
-    )
-}
+    );
+};
 export default Challenges;

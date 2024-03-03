@@ -3,7 +3,7 @@ import { Icons } from "../svgs/icons";
 const Footer = () => {
     return (
         <main
-            className={"container flex justify-between text-center border-t-[1px] py-3 fixed bottom-0 right-0 left-0"}
+            className={"container flex justify-between text-center border-t-[1px] py-3 fixed bottom-0 right-0 left-0 bg-background"}
         >
             <p>
                 made with 🧡 by&nbsp;

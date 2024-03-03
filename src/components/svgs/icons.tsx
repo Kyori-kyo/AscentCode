@@ -106,6 +106,9 @@ const Icons = {
             </g>
         </svg>
     ),
+    External_Link: (props) => (
+        <svg fill="currentColor" className={"scale-125"} height="8" viewBox="0 0 8 8" width="8" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="External link icon" {...props}><path d="m0 0v8h8v-2h-1v1h-6v-6h1v-1zm4 0 1.5 1.5-2.5 2.5 1 1 2.5-2.5 1.5 1.5v-4z" /></svg>
+    ),
 
 } satisfies Record<string, Icon>;
 

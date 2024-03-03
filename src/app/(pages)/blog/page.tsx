@@ -1,6 +1,6 @@
 const Blog = () => {
     return (
-        <main>
+        <main className={"centerAlignPattern"}>
             <div>Hello World</div>
         </main>
     )

@@ -9,8 +9,8 @@ const Navbar = () => {
     const navItems = navs[path as keyof typeof navs];
 
     return (
-        <main className={"sticky top-0"}>
-            <div className={"container flex flex-row items-center justify-between  border-b-[1px] py-3"}>
+        <main className={"sticky top-0 bg-background"}>
+            <div className={"container flex flex-ow items-center justify-between  border-b-[1px] py-3"}>
                 <div className={"dark:text-white text-black"}>
                     <Icons.Logo />
                 </div>
