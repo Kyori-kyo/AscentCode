@@ -8,8 +8,6 @@ import Link from "next/link";
 const Navbar = () => {
     const path = usePathname();
     const navItems = navs[path as keyof typeof navs];
-    console.log('teste');
-    console.log(navItems);
 
     return (
         <main className={"sticky top-0 bg-background"}>

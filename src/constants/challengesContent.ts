@@ -2567,3 +2567,8 @@ export const LeetCodeTodos = {
         }
     }
 }
+
+export const LeetCodeGroupChallenges = [
+    "leetcode-75",
+    "top-interview-150"
+]
